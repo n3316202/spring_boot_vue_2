@@ -15,7 +15,7 @@
         	<td>{{board.bid}}</td>
             <td>{{board.bname}}</td>
 
-
+			<td><a :href="'/content_view?bid=' + board.bid">{{board.btitle}}</a></td> 
 
         	<td>{{board.bdate}}</td>
         </tr>
