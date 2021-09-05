@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home!</router-link> | 
-      <router-link to="/about">About!</router-link>
+      <router-link to="/about">About!</router-link> |
+      <router-link to="/list">Board List</router-link>
     </div>
 <!--     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="안녕하세요 Vue.js 앱입니다." /> -->
