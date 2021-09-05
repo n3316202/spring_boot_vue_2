@@ -13,11 +13,17 @@
       <tbody>
         <tr v-for="board in boards" :key="board.bid">
         	<td>{{board.bid}}</td>
-            <td>{{board.bname}}</td>
+          <td>{{board.bname}}</td>
 
-			<td><a :href="'/content_view?bid=' + board.bid">{{board.btitle}}</a></td> 
-
+      		<td>
+              <span v-for="(n , index) in board.bindent" :key="index">
+                 <span v-if="n > 0">-</span>
+              </span>
+              <a :href="'/content_view?bid=' + board.bid">{{board.btitle}}</a>
+          </td>
         	<td>{{board.bdate}}</td>
+          <td>{{board.bhit}}</td>
+          
         </tr>
       </tbody>
     </table>
