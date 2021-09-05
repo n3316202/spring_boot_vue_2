@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>게시판 리스트</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>제목</th>
+					<th>날짜</th>
+					<th>히트</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="list : ${lists}">
+				<td th:text="${list.bid}"></td>
+				<td th:text="${list.bname}"></td>
+				<td th:with="endCount = ${list.bindent}">
+					<th:block th:if="${endCount} > 0">
+						<th:block th:each="num : ${#numbers.sequence(1,endCount)}">-</th:block>
+					</th:block>				
+					<a th:href="'content_view?bId=' + ${list.bid}" th:text="${list.btitle}">${dto.bTitle}</a>
+				</td>
+				
+				<td th:text="${list.bdate}">${dto.bDate}</td>
+				<td th:text="${list.bhit}">${dto.bHit}</td>
+			</tr>
+			</tbody>
+		</table>
+		<hr/>
+		
+		<div class="text-right">
+			<a class="btn btn-primary" href="write_view">글작성</a>
+		</div>
+		
+		<div class="text-center">
+			<ul class="pagination justify-content-center">
+			    <li class="page-item"><a class="page-link" href="">이전</a></li>
+			    <li class="page-item"><a class="page-link" href="">1</a></li>
+			    <li class="page-item"><a class="page-link" href="">2</a></li>
+			    <li class="page-item"><a class="page-link" href="">3</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
